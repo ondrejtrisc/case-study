@@ -1,10 +1,10 @@
 import React from 'react';
 import './Estate.scss';
 
-function Estate({name, price, locality, floor_area, land_area, company_logo, company_name}) {
+function Estate({name, price, locality, floor_area, land_area, company_logo, company_name, handleClick}) {
   
   return (
-    <div className="estate">
+    <div className="estate" onClick={handleClick}>
       <ul>
         <li>{name}</li>
         <li>Price: {price}</li>

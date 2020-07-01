@@ -6,6 +6,7 @@ import Estate from './Estate.js';
 function App() {
 
   const [estatesData, setEstatesData] = useState([]);
+  const [selectedEstate, setSelectedEstate] = useState('right');
   const [leftEstateIndex, setLeftEstateIndex] = useState(0);
   const [rightEstateIndex, setRightEstateIndex] = useState(1);
 
@@ -19,13 +20,23 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(estatesData);
+  const handleClick = index => {
+    switch (selectedEstate) {
+      case 'left':
+        setLeftEstateIndex(index);
+      break;
+      case 'right':
+        setRightEstateIndex(index);
+      break;
+    }
+  };
 
-  const previews = estatesData.map(estate => <Preview text={estate.name_extracted + ' ' + estate.locality}
-                                                      imageURL={estate.images[0]}
-                                                      key={'preview-' + estate.id}
-                                              />
-                                  );
+  const previews = estatesData.slice(0, 10).map((estate, index) => <Preview text={estate.name_extracted + ' ' + estate.locality}
+                                                                            imageURL={estate.images[0]}
+                                                                            handleClick={() => {handleClick(index)}}
+                                                                            key={'preview-' + estate.id}
+                                                                   />
+                                                );
 
   const leftEstate = estatesData[leftEstateIndex];
   const rightEstate = estatesData[rightEstateIndex];
@@ -37,6 +48,7 @@ function App() {
                                                  land_area={leftEstate.land_area}
                                                  company_logo={leftEstate.company_logo}
                                                  company_name={leftEstate.company_name}
+                                                 handleClick={() => {setSelectedEstate('left')}}
                                                  key="left"
                                           />,
     (rightEstate === undefined) ? <></> : <Estate name={rightEstate.name}
@@ -46,6 +58,7 @@ function App() {
                                                   land_area={rightEstate.land_area}
                                                   company_logo={rightEstate.company_logo}
                                                   company_name={rightEstate.company_name}
+                                                  handleClick={() => {setSelectedEstate('right')}}
                                                   key="right"
                                           />
   ];                     
@@ -56,10 +69,8 @@ function App() {
         <h1 className="main-heading">Estate Comparison</h1>
       </header>
       <hr className="horizontal-line" />
-      <div className="stripe">{previews}</div>
-      <div className="estates">
-        {estates}
-      </div>
+      <div className="preview-stripe">{previews}</div>
+      <div className="estates">{estates}</div>
     </div>
   );
 }
