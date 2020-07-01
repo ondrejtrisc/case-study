@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Preview.scss';
 
 function Preview({text, imageURL}) {
