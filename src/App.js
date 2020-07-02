@@ -32,7 +32,7 @@ function App() {
   };
 
   const previews = estatesData.slice(0, 10).map((estate, index) => <Preview text={estate.name_extracted + ' ' + estate.locality}
-                                                                            imageURL={estate.images[0]}
+                                                                            image={estate.images[0]}
                                                                             handleClick={() => {handleClick(index)}}
                                                                             key={'preview-' + estate.id}
                                                                    />
@@ -41,23 +41,25 @@ function App() {
   const leftEstate = estatesData[leftEstateIndex];
   const rightEstate = estatesData[rightEstateIndex];
   const estates = [
-    (leftEstate === undefined) ? <></> : <Estate name={leftEstate.name}
+    (leftEstate === undefined) ? <></> : <Estate image={leftEstate.images[0]}
+                                                 name={leftEstate.name}
                                                  price={leftEstate.prize_czk}
                                                  localicty={leftEstate.locality}
-                                                 floor_area={leftEstate.building_area}
-                                                 land_area={leftEstate.land_area}
-                                                 company_logo={leftEstate.company_logo}
-                                                 company_name={leftEstate.company_name}
+                                                 floorArea={leftEstate.building_area}
+                                                 landArea={leftEstate.land_area}
+                                                 companyLogo={leftEstate.company_logo}
+                                                 companyName={leftEstate.company_name}
                                                  handleClick={() => {setSelectedEstate('left')}}
                                                  key="left"
                                           />,
-    (rightEstate === undefined) ? <></> : <Estate name={rightEstate.name}
+    (rightEstate === undefined) ? <></> : <Estate image={rightEstate.images[0]}
+                                                  name={rightEstate.name}
                                                   price={rightEstate.prize_czk}
                                                   localicty={rightEstate.locality}
-                                                  floor_area={rightEstate.building_area}
-                                                  land_area={rightEstate.land_area}
-                                                  company_logo={rightEstate.company_logo}
-                                                  company_name={rightEstate.company_name}
+                                                  floorArea={rightEstate.building_area}
+                                                  landArea={rightEstate.land_area}
+                                                  companyLogo={rightEstate.company_logo}
+                                                  companyName={rightEstate.company_name}
                                                   handleClick={() => {setSelectedEstate('right')}}
                                                   key="right"
                                           />

@@ -1,11 +1,11 @@
 import React from 'react';
 import './Preview.scss';
 
-function Preview({text, imageURL, handleClick}) {
+function Preview({text, image, handleClick}) {
 
   return (
     <div className="preview" onClick={handleClick}>
-      <img src={imageURL} className="preview__image"></img>
+      <img src={image} className="preview__image"></img>
       <div className="preview__text">
         {text}
       </div>
