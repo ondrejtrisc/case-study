@@ -3,10 +3,20 @@
   flex-direction: column;  
 }
 
-.green {
+.labeled-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.better {
   background-color: green;
 }
 
-.red {
+.worse {
   background-color: red;
+}
+
+.estate__company {
+  display: flex;
+  align-items: center;
 }
