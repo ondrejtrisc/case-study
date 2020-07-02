@@ -44,9 +44,12 @@ function App() {
     (leftEstate === undefined) ? <></> : <Estate image={leftEstate.images[0]}
                                                  name={leftEstate.name}
                                                  price={leftEstate.prize_czk}
+                                                 priceColor={(leftEstate.prize_czk < rightEstate.prize_czk) ? 'green' : 'red'}
                                                  locality={leftEstate.locality}
                                                  floorArea={leftEstate.building_area}
+                                                 floorAreaColor={(Number(leftEstate.building_area) > Number(rightEstate.building_area)) ? 'green' : 'red'}
                                                  landArea={leftEstate.land_area}
+                                                 landAreaColor={(Number(leftEstate.land_area) > Number(rightEstate.land_area)) ? 'green' : 'red'}
                                                  companyLogo={leftEstate.company_logo}
                                                  companyName={leftEstate.company_name}
                                                  handleClick={() => {setSelectedEstate('left')}}
@@ -55,9 +58,12 @@ function App() {
     (rightEstate === undefined) ? <></> : <Estate image={rightEstate.images[0]}
                                                   name={rightEstate.name}
                                                   price={rightEstate.prize_czk}
+                                                  priceColor={(rightEstate.prize_czk < leftEstate.prize_czk) ? 'green' : 'red'}
                                                   locality={rightEstate.locality}
                                                   floorArea={rightEstate.building_area}
+                                                  floorAreaColor={(Number(rightEstate.building_area) > Number(leftEstate.building_area)) ? 'green' : 'red'}
                                                   landArea={rightEstate.land_area}
+                                                  landAreaColor={(Number(rightEstate.land_area) > Number(leftEstate.land_area)) ? 'green' : 'red'}
                                                   companyLogo={rightEstate.company_logo}
                                                   companyName={rightEstate.company_name}
                                                   handleClick={() => {setSelectedEstate('right')}}
@@ -71,7 +77,7 @@ function App() {
         <h1 className="main-heading">Estate Comparison</h1>
       </header>
       <hr className="horizontal-line" />
-      <div className="preview-stripe">{previews}</div>
+      <div className="previews">{previews}</div>
       <div className="estates">{estates}</div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Estate.scss';
 
-function Estate({image, name, price, locality, floorArea, landArea, companyLogo, companyName, handleClick}) {
+function Estate({image, name, price, priceColor, locality, floorArea, floorAreaColor, landArea, landAreaColor, companyLogo, companyName, handleClick}) {
   
   return (
     <div className="estate" onClick={handleClick}>
@@ -11,16 +11,16 @@ function Estate({image, name, price, locality, floorArea, landArea, companyLogo,
       <div className="estate__name">
         {name}
       </div>
-      <div className="estate__price">
+      <div className={'estate__price ' + priceColor}>
         Price: {price}
       </div>
       <div className="estate__locality">
         Locality: {locality}
       </div>
-      <div className="estate__floor-area">
+      <div className={'estate__floor-area ' + floorAreaColor}>
         Floor area: {floorArea}
       </div>
-      <div className="estate__land-area">
+      <div className={'estate__land-area ' + landAreaColor}>
         Land area: {landArea}
       </div>
       <div className="estate__company">
