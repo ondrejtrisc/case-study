@@ -8,12 +8,16 @@
   justify-content: space-between;
 }
 
+.line-label {
+  font-weight: bold;
+}
+
 .better {
-  background-color: green;
+  background-color: rgb(126, 218, 126);
 }
 
 .worse {
-  background-color: red;
+  background-color: rgb(240, 145, 145);
 }
 
 .estate__company {
