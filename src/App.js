@@ -44,7 +44,7 @@ function App() {
     (leftEstate === undefined) ? <></> : <Estate image={leftEstate.images[0]}
                                                  name={leftEstate.name}
                                                  price={leftEstate.prize_czk}
-                                                 localicty={leftEstate.locality}
+                                                 locality={leftEstate.locality}
                                                  floorArea={leftEstate.building_area}
                                                  landArea={leftEstate.land_area}
                                                  companyLogo={leftEstate.company_logo}
@@ -55,7 +55,7 @@ function App() {
     (rightEstate === undefined) ? <></> : <Estate image={rightEstate.images[0]}
                                                   name={rightEstate.name}
                                                   price={rightEstate.prize_czk}
-                                                  localicty={rightEstate.locality}
+                                                  locality={rightEstate.locality}
                                                   floorArea={rightEstate.building_area}
                                                   landArea={rightEstate.land_area}
                                                   companyLogo={rightEstate.company_logo}
