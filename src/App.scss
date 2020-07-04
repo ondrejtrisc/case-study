@@ -1,15 +1,16 @@
-.main-heading {
+h1 {
   color: rgb(153, 153, 153);
   text-align: center;
 }
 
-.horizontal-line {
+hr {
   color: rgb(153, 153, 153);
 }
 
 .previews {
   display: flex;
   justify-content: space-evenly;
+  margin: 1.5rem 3rem;
 }
 
 .estates {

@@ -74,9 +74,9 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1 className="main-heading">Estate Comparison</h1>
+        <h1>Estate Comparison</h1>
       </header>
-      <hr className="horizontal-line" />
+      <hr />
       <div className="previews">{previews}</div>
       <div className="estates">{estates}</div>
     </div>

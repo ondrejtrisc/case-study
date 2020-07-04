@@ -1,7 +1,16 @@
 .preview {
-  width: 10vw;
+  width: 9vw;
+  height: 12vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .preview__image {
-  width: 9vw;
+  width: 100%;
+  flex-grow: 1;
+  background-size: cover;
+}
+
+.preview__text {
+  font-size: 0.7rem;
 }
