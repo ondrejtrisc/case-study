@@ -12,5 +12,28 @@
 }
 
 .preview__text {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
+  margin: 0.1rem;
+}
+
+.overlay {
+  position: absolute;
+  width: 9vw;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.5rem solid rgba(109, 180, 214, 0.8);
+}
+
+.selection {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(109, 180, 214, 0.8);
 }

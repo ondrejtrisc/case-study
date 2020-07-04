@@ -33,6 +33,8 @@ function App() {
 
   const previews = estatesData.slice(0, 10).map((estate, index) => <Preview text={estate.name_extracted + ' ' + estate.locality}
                                                                             image={estate.images[0]}
+                                                                            selection={(index === leftEstateIndex) ? 'left' :
+                                                                                      ((index === rightEstateIndex) ? 'right' : '')}
                                                                             handleClick={() => {handleClick(index)}}
                                                                             key={'preview-' + estate.id}
                                                                    />
