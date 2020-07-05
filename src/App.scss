@@ -1,17 +1,19 @@
+@import 'colors';
+
 h1 {
-  color: rgb(153, 153, 153);
+  color: $mygrey;
   text-align: center;
   font-size: 2.5rem;
 }
 
 hr {
-  color: rgb(153, 153, 153);
+  color: $mygrey;
 }
 
 .previews {
   display: flex;
   justify-content: space-evenly;
-  margin: 1.5rem 3rem;
+  margin: 1.5rem 4rem;
 }
 
 .estates {

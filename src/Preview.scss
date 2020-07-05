@@ -1,3 +1,5 @@
+@import 'colors';
+
 .preview {
   width: 9vw;
   height: 12vh;
@@ -12,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.5rem solid rgba(109, 180, 214, 0.8);
+    border: 0.4rem solid $myblue;
 
     .selection {
       width: 1.5rem;
@@ -23,7 +25,7 @@
       border-radius: 50%;
       color: white;
       font-weight: bold;
-      background-color: rgba(109, 180, 214, 0.8);
+      background-color: $myblue;
     }
   }
 
@@ -34,7 +36,7 @@
   }
 
   &__text {
-    font-size: 0.65rem;
+    font-size: 0.66rem;
     margin: 0.1rem;
   }
 }

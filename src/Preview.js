@@ -3,21 +3,16 @@ import './Preview.scss';
 
 function Preview({text, image, selection, handleClick}) {
 
+  //the overlay marking that the preview is selected as the left (A) or the right (B) estate in the comparison
   let overlay;
   switch(selection) {
-    case 'left':
-      overlay = <div className="preview__overlay">
-                  <div className="selection">A</div>
-                </div>
-    break;
-    case 'right':
-      overlay = <div className="preview__overlay">
-                  <div className="selection">B</div>
-                </div>
-    break;
     case '':
-      overlay = <></>
+      overlay = <></>;
     break;
+    default:
+      overlay = <div className="preview__overlay">
+                  <div className="selection">{selection}</div>
+                </div>;
   }
 
   return (

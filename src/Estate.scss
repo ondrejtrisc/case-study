@@ -1,12 +1,14 @@
+@import 'colors';
+
 .estate {
+  width: 22rem;
   display: flex;
   flex-direction: column;
   padding: 0.3rem;
-  border: 1px solid rgb(153, 153, 153);
+  border: 1px solid $mygrey;
   border-radius: 1%;
   margin: 0 0.5rem;
-  font-size: 0.8rem;
-  width: 23rem;
+  font-size: 0.75rem;
 
   &__image {
     width: 100%;
@@ -23,11 +25,11 @@
   }
   
   &__line--better {
-    background-color: rgb(126, 218, 126);
+    background-color: $mygreen;
   }
   
   &__line--worse {
-    background-color: rgb(240, 145, 145);
+    background-color: $myred;
   }
   
   &__company {

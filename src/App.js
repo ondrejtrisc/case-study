@@ -6,10 +6,11 @@ import Estate from './Estate.js';
 function App() {
 
   const [estatesData, setEstatesData] = useState([]);
-  const [selectedEstate, setSelectedEstate] = useState('right');
+  const [variableEstate, setVariableEstate] = useState('right');  //which side of the comparison changes when a different preview is clicked
   const [leftEstateIndex, setLeftEstateIndex] = useState(0);
   const [rightEstateIndex, setRightEstateIndex] = useState(1);
 
+  //fetches the data about the estates from an API
   useEffect(() => {
     const fetchData = async () => {
       const apiURL = 'https://estate-comparison.codeboot.cz/list.php';
@@ -20,8 +21,9 @@ function App() {
     fetchData();
   }, []);
 
+  //when a preview of an estate is clicked the estate gets displayed on the appropriate side of the comparison
   const handleClick = index => {
-    switch (selectedEstate) {
+    switch (variableEstate) {
       case 'left':
         if (index !== rightEstateIndex) {
           setLeftEstateIndex(index);
@@ -35,51 +37,40 @@ function App() {
     }
   };
 
+  //displays the previews for the first 10 estates
   const previews = estatesData.slice(0, 10).map((estate, index) => {
     return(
       <Preview text={estate.name_extracted + ' ' + estate.locality}
                image={estate.images[0]}
-               selection={(index === leftEstateIndex) ? 'left' :
-                         ((index === rightEstateIndex) ? 'right' : '')}
+               selection={(index === leftEstateIndex) ? 'A' :
+                         ((index === rightEstateIndex) ? 'B' : '')}
                handleClick={() => {handleClick(index)}}
                key={'preview-' + estate.id}
       />
     );
   });
 
-  const leftEstate = estatesData[leftEstateIndex];
-  const rightEstate = estatesData[rightEstateIndex];
-  const estates = [
-    (leftEstate === undefined) ? <></> : <Estate image={leftEstate.images[0]}
-                                                 name={leftEstate.name}
-                                                 price={leftEstate.prize_czk}
-                                                 priceColor={(leftEstate.prize_czk <= rightEstate.prize_czk) ? 'better' : 'worse'}
-                                                 locality={leftEstate.locality}
-                                                 floorArea={leftEstate.building_area}
-                                                 floorAreaColor={(Number(leftEstate.building_area) >= Number(rightEstate.building_area)) ? 'better' : 'worse'}
-                                                 landArea={leftEstate.land_area}
-                                                 landAreaColor={(Number(leftEstate.land_area) >= Number(rightEstate.land_area)) ? 'better' : 'worse'}
-                                                 companyLogo={leftEstate.company_logo}
-                                                 companyName={leftEstate.company_name}
-                                                 handleClick={() => {setSelectedEstate('left')}}
-                                                 key="left"
-                                          />,
-    (rightEstate === undefined) ? <></> : <Estate image={rightEstate.images[0]}
-                                                  name={rightEstate.name}
-                                                  price={rightEstate.prize_czk}
-                                                  priceColor={(rightEstate.prize_czk <= leftEstate.prize_czk) ? 'better' : 'worse'}
-                                                  locality={rightEstate.locality}
-                                                  floorArea={rightEstate.building_area}
-                                                  floorAreaColor={(Number(rightEstate.building_area) >= Number(leftEstate.building_area)) ? 'better' : 'worse'}
-                                                  landArea={rightEstate.land_area}
-                                                  landAreaColor={(Number(rightEstate.land_area) >= Number(leftEstate.land_area)) ? 'better' : 'worse'}
-                                                  companyLogo={rightEstate.company_logo}
-                                                  companyName={rightEstate.company_name}
-                                                  handleClick={() => {setSelectedEstate('right')}}
-                                                  key="right"
-                                          />
-  ];                     
-
+  //displays the 2 selected estates (provided the data has aleady been fetched)
+  const selectedEstatesData = [estatesData[leftEstateIndex], estatesData[rightEstateIndex]];
+  const estates = selectedEstatesData.map((estate, index) => {
+    return (
+      (estate === undefined) ? <></> : <Estate image={estate.images[0]}
+                                               name={estate.name}
+                                               price={estate.prize_czk}
+                                               priceComparison={(estate.prize_czk <= selectedEstatesData[1 - index].prize_czk) ? 'better' : 'worse'}
+                                               locality={estate.locality}
+                                               floorArea={estate.building_area}
+                                               floorAreaComparison={(Number(estate.building_area) >= Number(selectedEstatesData[1 - index].building_area)) ? 'better' : 'worse'}
+                                               landArea={estate.land_area}
+                                               landAreaComparison={(Number(estate.land_area) >= Number(selectedEstatesData[1 - index].land_area)) ? 'better' : 'worse'}
+                                               companyLogo={estate.company_logo}
+                                               companyName={estate.company_name}
+                                               handleClick={() => {setVariableEstate((index === 0) ? 'left' : 'right')}}
+                                               key={(index === 0) ? 'left' : 'right'}
+                                        />
+    );
+  });
+    
   return (
     <div className="App">
       <header>
