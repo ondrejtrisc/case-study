@@ -11,7 +11,7 @@ function Estate({image, name, price, priceComparison, locality, floorArea, floor
   
   return (
     <div className="estate" onClick={handleClick}>
-      <img src={image} className="estate__image" />
+      <img src={image} alt="" className="estate__image" />
       <div className="estate__line">
         {name}
       </div>
@@ -28,7 +28,7 @@ function Estate({image, name, price, priceComparison, locality, floorArea, floor
         <span className="label">Land area</span> <span>{formatNumber(landArea)} m²</span>
       </div>
       <div className="estate__company">
-        <img src={companyLogo} />
+        <img src={companyLogo} alt="" />
         {companyName}
       </div>
     </div>

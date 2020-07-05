@@ -29,11 +29,10 @@ function App() {
           setLeftEstateIndex(index);
         }
       break;
-      case 'right':
+      default:
         if (index !== leftEstateIndex) {
           setRightEstateIndex(index);
         }
-      break;
     }
   };
 
