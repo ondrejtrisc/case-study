@@ -6,17 +6,18 @@ function Preview({text, image, selection, handleClick}) {
   let overlay;
   switch(selection) {
     case 'left':
-      overlay = <div className="overlay">
+      overlay = <div className="preview__overlay">
                   <div className="selection">A</div>
                 </div>
-      break;
+    break;
     case 'right':
-      overlay = <div className="overlay">
+      overlay = <div className="preview__overlay">
                   <div className="selection">B</div>
                 </div>
-      break;
+    break;
     case '':
       overlay = <></>
+    break;
   }
 
   return (

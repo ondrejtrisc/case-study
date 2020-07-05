@@ -23,22 +23,29 @@ function App() {
   const handleClick = index => {
     switch (selectedEstate) {
       case 'left':
-        setLeftEstateIndex(index);
+        if (index !== rightEstateIndex) {
+          setLeftEstateIndex(index);
+        }
       break;
       case 'right':
-        setRightEstateIndex(index);
+        if (index !== leftEstateIndex) {
+          setRightEstateIndex(index);
+        }
       break;
     }
   };
 
-  const previews = estatesData.slice(0, 10).map((estate, index) => <Preview text={estate.name_extracted + ' ' + estate.locality}
-                                                                            image={estate.images[0]}
-                                                                            selection={(index === leftEstateIndex) ? 'left' :
-                                                                                      ((index === rightEstateIndex) ? 'right' : '')}
-                                                                            handleClick={() => {handleClick(index)}}
-                                                                            key={'preview-' + estate.id}
-                                                                   />
-                                                );
+  const previews = estatesData.slice(0, 10).map((estate, index) => {
+    return(
+      <Preview text={estate.name_extracted + ' ' + estate.locality}
+               image={estate.images[0]}
+               selection={(index === leftEstateIndex) ? 'left' :
+                         ((index === rightEstateIndex) ? 'right' : '')}
+               handleClick={() => {handleClick(index)}}
+               key={'preview-' + estate.id}
+      />
+    );
+  });
 
   const leftEstate = estatesData[leftEstateIndex];
   const rightEstate = estatesData[rightEstateIndex];

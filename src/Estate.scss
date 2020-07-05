@@ -6,36 +6,37 @@
   border-radius: 1%;
   margin: 0 0.5rem;
   font-size: 0.8rem;
-}
+  width: 23rem;
 
-.estate__image {
-  width: 22vw;
-}
+  &__image {
+    width: 100%;
+  }
 
-.line {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5em;
-}
+  &__line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
 
-.label {
-  font-weight: bold;
-}
-
-.better {
-  background-color: rgb(126, 218, 126);
-}
-
-.worse {
-  background-color: rgb(240, 145, 145);
-}
-
-.estate__company {
-  display: flex;
-  align-items: center;
-
-  img {
-    max-width: 4rem;
-    margin: 0.5em;
+    .label {
+      font-weight: bold;
+    }
+  }
+  
+  &__line--better {
+    background-color: rgb(126, 218, 126);
+  }
+  
+  &__line--worse {
+    background-color: rgb(240, 145, 145);
+  }
+  
+  &__company {
+    display: flex;
+    align-items: center;
+  
+    img {
+      max-width: 4rem;
+      margin: 0.5em;
+    }
   }
 }
